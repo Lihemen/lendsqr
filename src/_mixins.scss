@@ -1,0 +1,114 @@
+@use 'sass:math';
+
+$nums: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
+$sizes: 'sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl';
+$colors: (
+  'pink': $lendsqr-pink,
+  'orange': $lendsqr-orange,
+  'purple': $lendsqr-purple,
+  'yellow': $lendsqr-yellow,
+  'green': $lendsqr-green,
+  'dark-blue': $lendsqr-dark-blue,
+  'dark-blue-light': rgba(33, 63, 125, 0.05),
+  'gray': $lendsqr-gray,
+  'red': $lendsqr-red,
+  'primary': $primary-color,
+  'white': #fff,
+  'black': #111,
+  'ash': #efefef,
+);
+$cursors: 'pointer', 'default', 'zoom-in', 'zoom-out', 'grab';
+$alignments: 'center', 'left', 'right';
+
+@function variable-from-string($string) {
+  $variable: unquote($string);
+  @return '$#{$variable}';
+}
+
+@each $num in $nums {
+  .leading-#{$num} {
+    line-height: calc($num * 4) * 1px;
+  }
+  .p-#{$num} {
+    padding: math.div($num, 4) * 1rem;
+  }
+  .pt-#{$num} {
+    padding-top: math.div($num, 4) * 1rem;
+  }
+  .pl-#{$num} {
+    padding-left: math.div($num, 4) * 1rem;
+  }
+  .pr-#{$num} {
+    padding-right: math.div($num, 4) * 1rem;
+  }
+  .pb-#{$num} {
+    padding-bottom: math.div($num, 4) * 1rem;
+  }
+  .py-#{$num} {
+    padding-block: math.div($num, 4) * 1rem;
+  }
+  .px-#{$num} {
+    padding-inline: math.div($num, 4) * 1rem;
+  }
+  .m-#{$num} {
+    margin: math.div($num, 4) * 1rem;
+  }
+  .mt-#{$num} {
+    margin-top: math.div($num, 4) * 1rem;
+  }
+  .mb-#{$num} {
+    margin-bottom: math.div($num, 4) * 1rem;
+  }
+  .my-#{$num} {
+    margin-block: math.div($num, 4) * 1rem;
+  }
+  .mx-#{$num} {
+    margin-inline: math.div($num, 4) * 1rem;
+  }
+  .gap-#{$num} {
+    gap: math.div($num, 4) * 1rem;
+  }
+  .gap-x-#{$num} {
+    row-gap: math.div($num, 4) * 1rem;
+  }
+  .gap-y-#{$num} {
+    column-gap: math.div($num, 4) * 1rem;
+  }
+  .grid-cols-#{$num} {
+    grid-template-columns: repeat(#{$num}, 1fr);
+  }
+}
+
+@each $curs in $cursors {
+  .cursor-#{$curs} {
+    cursor: #{$curs};
+  }
+}
+
+@each $name, $color in $colors {
+  .text-#{$name} {
+    color: $color;
+  }
+  .bg-#{$name} {
+    background-color: $color;
+  }
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: rgb(233, 230, 230);
+}
+
+.rotate-#{num} {
+  transform: rotate(#{num}deg);
+}
+
+@each $align in $alignments {
+  .text-#{$align} {
+    text-align: #{$align};
+  }
+}

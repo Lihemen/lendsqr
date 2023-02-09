@@ -1,0 +1,28 @@
+@import '../../../base';
+
+.form_input {
+  width: 100%;
+  padding: 15px 18px;
+  display: block;
+  appearance: none;
+  outline: none;
+  word-spacing: 1.25px;
+  border-radius: 5px;
+  border: 2px solid rgba(84, 95, 125, 0.15);
+  line-height: 20px;
+  font-size: 14px;
+  color: #545f7d;
+  ::placeholder {
+    opacity: 0.6;
+  }
+}
+
+.password__visibility {
+  text-transform: uppercase;
+  right: 8px;
+  position: absolute;
+  top: 50%;
+  display: block;
+  color: $primary-color;
+  cursor: pointer;
+}

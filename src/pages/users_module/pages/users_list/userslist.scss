@@ -1,0 +1,16 @@
+.icon {
+  padding: 10px;
+  border-radius: 50%;
+  &_pink {
+    background-color: rgba($color: #df18ff, $alpha: 0.2);
+  }
+  &_purple {
+    background-color: rgba($color: #5718ff, $alpha: 0.2);
+  }
+  &_orange {
+    background-color: rgba($color: #f55f44, $alpha: 0.2);
+  }
+  &_red {
+    background-color: rgba($color: #ff3366, $alpha: 0.2);
+  }
+}

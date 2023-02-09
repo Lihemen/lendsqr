@@ -1,0 +1,29 @@
+.select_list {
+  position: absolute;
+  top: 110%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-height: 0;
+  transition: max-height 0.3s ease-in-out;
+  background-color: #fff;
+  overflow: hidden;
+  &_item {
+    padding: 10px;
+    &:hover {
+      background: rgba(33, 63, 125, 0.05);
+    }
+  }
+  &.show {
+    max-height: 24rem;
+    overflow: scroll;
+  }
+}
+
+.action_selecter {
+  background: rgba(33, 63, 125, 0.1);
+  border-radius: 4px;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}

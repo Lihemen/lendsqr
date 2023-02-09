@@ -1,0 +1,69 @@
+@import '../../../../base';
+
+.login {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  .login_img_container {
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(229, 229, 229, 0.1) !important;
+    position: relative;
+    gap: 4.5rem;
+    .login_img {
+      width: 80%;
+      object-fit: cover;
+    }
+    .logo {
+      position: absolute;
+      top: 4rem;
+      @media (min-width: $sm) {
+        left: 2rem;
+      }
+      @media (min-width: $lg) {
+        left: 4rem;
+      }
+      @media (min-width: $xl) {
+        left: 6rem;
+      }
+      @media (min-width: $xxl) {
+        left: 8rem;
+      }
+    }
+  }
+  .login_form_container {
+    justify-content: center;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    p {
+      font-size: 1.25rem;
+      margin-bottom: 4rem;
+    }
+    .form {
+      gap: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      input {
+        margin-top: 1.5rem;
+      }
+      .forgot_password {
+        color: $primary-color;
+        text-transform: uppercase;
+        transition: all 0.15s ease-in-out;
+        width: max-content;
+        &:hover {
+          text-decoration: underline;
+          text-underline-offset: 4px;
+        }
+      }
+      .login__button {
+        margin-top: 4rem;
+      }
+    }
+  }
+}

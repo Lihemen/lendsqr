@@ -1,0 +1,44 @@
+@import '../../base';
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  background-color: white;
+  width: 20%;
+  min-width: 288px;
+  height: 100%;
+  overflow-y: scroll;
+  padding: 8rem 0 0 1.5rem;
+  z-index: 5;
+  font-weight: normal;
+  .sidebar_links_title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: $lendsqr-dark-blue;
+  }
+  .side_link {
+    padding: 0.75rem 1.5rem;
+    margin-left: -1.5rem;
+    color: $lendsqr-dark-blue;
+    font-weight: 400;
+    & > span {
+      font-size: 16px;
+    }
+    &_active {
+      background-color: rgba($color: $primary-color, $alpha: 0.1);
+      box-shadow: inset 4px 0 0 0 $primary-color;
+      font-weight: 600;
+    }
+  }
+  .logout {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    margin-left: -1.5rem;
+    padding: 1.5rem 1.5rem 1.5rem;
+    outline: none;
+    background: white;
+  }
+}

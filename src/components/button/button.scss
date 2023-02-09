@@ -1,0 +1,29 @@
+@import '../../base';
+
+.button {
+  display: block;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 5px;
+  padding: 15px 18px;
+  outline: none;
+  border: none;
+  transition: all 0.2s linear;
+  &.filled {
+    background-color: $primary-color;
+    color: white;
+    &:hover {
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+  }
+  &.outline {
+    --lnd-ring-offset-shadow: 1px 0 0 0 10% $primary-color;
+    --lnd-ring-shadow: 1px 0 0 0 calc(1px + 10%) $primary-color;
+    box-shadow: var(--lnd-ring-offset-shadow), var(--lnd-ring-shadow),
+      var(--tw-shadow, 0 0 #0000);
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+}

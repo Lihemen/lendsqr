@@ -1,0 +1,21 @@
+.table {
+  height: 45rem;
+  overflow: auto;
+  &_head {
+    position: sticky;
+    background-color: white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    right: 0;
+  }
+
+  &_body {
+    tr {
+      // padding: 1rem !important;
+      // vertical-align: middle;
+      // width: 100%;
+      border-bottom: 1px solid red;
+    }
+  }
+}
