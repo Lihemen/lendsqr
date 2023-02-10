@@ -92,8 +92,11 @@ table {
   font-size: smaller;
   padding-top: 8px;
 }
-.w-fulll {
+.w-full {
   width: 100%;
+}
+.h-full {
+  height: 100%;
 }
 .relative {
   position: relative;
@@ -180,4 +183,8 @@ table {
 }
 .whitespace-nowrap {
   white-space: nowrap;
+}
+.mantine-Tabs-tab[data-active] {
+  border-color: $primary-color !important;
+  color: $primary-color !important;
 }

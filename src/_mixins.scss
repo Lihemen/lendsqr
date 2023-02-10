@@ -74,8 +74,28 @@ $positions: 't', 'b', 'r', 'l';
   .gap-y-#{$num} {
     column-gap: math.div($num, 4) * 1rem;
   }
-  .grid-cols-#{$num} {
+  .cols-#{$num} {
     grid-template-columns: repeat(#{$num}, 1fr);
+  }
+  .cols-#{$num}-md {
+    @media (min-width: 769px) {
+      grid-template-columns: repeat(#{$num}, 1fr);
+    }
+  }
+  .cols-#{$num}-lg {
+    @media (min-width: 922px) {
+      grid-template-columns: repeat(#{$num}, 1fr);
+    }
+  }
+  .cols-#{$num}-xl {
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(#{$num}, 1fr);
+    }
+    .cols-#{$num}-2xl {
+      @media (min-width: 1201px) {
+        grid-template-columns: repeat(#{$num}, 1fr);
+      }
+    }
   }
   .border-#{$num} {
     border-width: $num * 1px;
@@ -105,6 +125,10 @@ $positions: 't', 'b', 'r', 'l';
   }
 }
 
+.border {
+  border: solid rgba(33, 63, 125, 0.1);
+}
+
 @each $name, $color in $colors {
   .text-#{$name} {
     color: $color;
@@ -114,6 +138,12 @@ $positions: 't', 'b', 'r', 'l';
   }
   .bg-#{$name}-light {
     background-color: rgba($color: $color, $alpha: 0.1);
+  }
+  .border-#{$name} {
+    border-color: $color !important;
+  }
+  .boeder-#{$name}-light {
+    border-color: rgba($color: $color, $alpha: 0.1) !important;
   }
 }
 
