@@ -9,7 +9,6 @@ $colors: (
   'yellow': $lendsqr-yellow,
   'green': $lendsqr-green,
   'dark-blue': $lendsqr-dark-blue,
-  'dark-blue-light': rgba(33, 63, 125, 0.05),
   'gray': $lendsqr-gray,
   'red': $lendsqr-red,
   'primary': $primary-color,
@@ -19,6 +18,7 @@ $colors: (
 );
 $cursors: 'pointer', 'default', 'zoom-in', 'zoom-out', 'grab';
 $alignments: 'center', 'left', 'right';
+$positions: 't', 'b', 'r', 'l';
 
 @function variable-from-string($string) {
   $variable: unquote($string);
@@ -77,11 +77,31 @@ $alignments: 'center', 'left', 'right';
   .grid-cols-#{$num} {
     grid-template-columns: repeat(#{$num}, 1fr);
   }
+  .border-#{$num} {
+    border-width: $num * 1px;
+  }
 }
 
 @each $curs in $cursors {
   .cursor-#{$curs} {
     cursor: #{$curs};
+  }
+}
+
+@each $pos in $positions {
+  .border-#{$pos} {
+    @if ($pos == 'r') {
+      border-right: solid rgba(33, 63, 125, 0.1);
+    }
+    @if ($pos == 'l') {
+      border-left: solid rgba(33, 63, 125, 0.1);
+    }
+    @if ($pos == 't') {
+      border-top: solid rgba(33, 63, 125, 0.1);
+    }
+    @if ($pos == 'b') {
+      border-bottom: solid rgba(33, 63, 125, 0.1);
+    }
   }
 }
 
@@ -91,6 +111,9 @@ $alignments: 'center', 'left', 'right';
   }
   .bg-#{$name} {
     background-color: $color;
+  }
+  .bg-#{$name}-light {
+    background-color: rgba($color: $color, $alpha: 0.1);
   }
 }
 

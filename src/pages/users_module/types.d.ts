@@ -12,6 +12,7 @@ type User = {
   accountNumber: string;
   socials: Socials;
   education: Education;
+  status: 'inactive' | 'active' | 'pending' | 'blacklisted';
 };
 
 type Socials = {

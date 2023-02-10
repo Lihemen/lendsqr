@@ -1,5 +1,5 @@
 .table {
-  height: 45rem;
+  height: 50rem;
   overflow: auto;
   &_head {
     position: sticky;
@@ -8,14 +8,15 @@
     left: 0;
     width: 100%;
     right: 0;
+    z-index: 9999;
   }
 
   &_body {
     tr {
-      // padding: 1rem !important;
-      // vertical-align: middle;
-      // width: 100%;
-      border-bottom: 1px solid red;
+      border-collapse: collapse;
+      td {
+        border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+      }
     }
   }
 }

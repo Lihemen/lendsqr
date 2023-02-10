@@ -9,6 +9,7 @@ type DataGridOptionalProps<T> = {
   navigationProps?: { baseRoute: string; accessor: string }; // define navigation
   withCheck?: boolean; //enable data selection
   setExternalContent?: React.Dispatch<React.SetStateAction<T[]>>; // set external content
+  ActionComponent?: ActionComponentProps;
 };
 
 type ActionComponentProps<T> = {
@@ -23,6 +24,7 @@ interface Header<T> {
   accessor: string;
   sortable: boolean;
   secondary_key?: string;
+  searchType?: 'input' | 'select' | 'date';
   cell?: (val: any, second?: any) => JSX.Element;
   cellAlign?: 'left' | 'right' | 'center';
   row?: (val: any, second?: any) => JSX.Element;

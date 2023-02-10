@@ -1,6 +1,5 @@
 import { useCallback, useState } from 'react';
 import { IoMdFunnel } from 'react-icons/io';
-import { RxDotsVertical } from 'react-icons/rx';
 
 import Pagination from './pagination';
 import {
@@ -112,11 +111,11 @@ const DataGrid = ({ data, rows, headers, ...props }: DataGridProps<any[]>) => {
               {headers.map((header) => (
                 <th key={header.accessor} className='uppercase text-left'>
                   <span className='flex items-center gap-4 cursor-default whitespace-nowrap p-6'>
-                    {header.name} <IoMdFunnel />
+                    {header.name} <IoMdFunnel size={18} />
                   </span>
                 </th>
               ))}
-              <th></th>
+              {props.ActionComponent && <th></th>}
             </tr>
           </thead>
           <tbody className='table_body'>
@@ -183,9 +182,13 @@ const DataGrid = ({ data, rows, headers, ...props }: DataGridProps<any[]>) => {
                         </React.Fragment>
                       );
                     })}
-                  <td className='pr-4'>
-                    <RxDotsVertical className='text-xl' />
-                  </td>
+                  {props.ActionComponent && (
+                    <td
+                      onClick={(e) => e.stopPropagation()}
+                      className='relative pr-4 cursor-pointer'>
+                      <props.ActionComponent data={row} />
+                    </td>
+                  )}
                 </tr>
               ))
             )}

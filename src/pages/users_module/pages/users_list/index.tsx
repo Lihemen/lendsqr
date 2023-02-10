@@ -1,17 +1,73 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './userslist.scss';
+
+import { Popover } from '@mantine/core';
 import { MdPeopleAlt } from 'react-icons/md';
 import { IoIosPeople } from 'react-icons/io';
 import { IoDocumentTextOutline } from 'react-icons/io5';
-import { FaCoins } from 'react-icons/fa';
+import { FaCoins, FaUserCheck, FaUserTimes, FaRegEye } from 'react-icons/fa';
+import { RxDotsVertical } from 'react-icons/rx';
 import { useQuery } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 
 import { commaFormatter, transformWords } from '../../../../utils/formatter';
 
-import './userslist.scss';
 import { Loader, Table } from '../../../../components';
 import { get_all_users } from '../../../../queries';
 
+const ActionComponent = ({ data }: { data: User }) => {
+  const [opened, setOpened] = useState(false);
+  const navigate = useNavigate();
+  return (
+    <Popover
+      position='left-start'
+      opened={opened}
+      styles={{
+        dropdown: {
+          right: '0% !important',
+          left: 'unset !important',
+          top: '90% !important',
+          width: 'max-content',
+          padding: '0rem !important',
+          marginRight: '10px',
+          border: 'none',
+          zIndex: 9,
+        },
+      }}>
+      <Popover.Target>
+        <RxDotsVertical size={20} onClick={() => setOpened((s) => !s)} />
+      </Popover.Target>
+      <Popover.Dropdown>
+        <div className='flex w-full flex-col gap-4 dropdown'>
+          <button
+            onClick={() => {
+              navigate(data.id);
+              setOpened(false);
+            }}
+            className='py-2 px-3 w-full flex items-center gap-4 text-left bg-white text-gray'>
+            <FaRegEye />
+            View Details
+          </button>
+          <button
+            onClick={() => setOpened(false)}
+            className='py-2 px-3 w-full flex items-center gap-4 text-left bg-white text-gray'>
+            <FaUserTimes />
+            Blacklist User
+          </button>
+          <button
+            onClick={() => setOpened(false)}
+            className='py-2 px-3 w-full flex items-center gap-4 text-left bg-white text-gray'>
+            <FaUserCheck />
+            Activate User
+          </button>
+        </div>
+      </Popover.Dropdown>
+    </Popover>
+  );
+};
+
 const UsersList = () => {
+  const status = ['active', 'pending', 'inactive', 'blacklisted'];
   const { data, isError, isLoading } = useQuery(get_all_users());
 
   return (
@@ -19,14 +75,23 @@ const UsersList = () => {
       <h3 className='text-xl text-dark-blue font-semibold'>Users</h3>
       <div className='flex justify-between items-center gap-8'>
         <div className='flex flex-col flex-1 items-start justify-between bg-white p-7 gap-6 rounded'>
-          <MdPeopleAlt size={40} color='#DF18FF' className='icon icon_pink' />
+          <MdPeopleAlt
+            fontVariant='Bulk'
+            size={40}
+            color='#DF18FF'
+            className='icon bg-pink-light'
+          />
           <h5 className='font-normal uppercase'>Users</h5>
           <p className='text-2xl leading-4 font-bold text-dark-blue'>
             {commaFormatter(2453)}
           </p>
         </div>
         <div className='flex flex-col flex-1 items-start justify-between bg-white p-7 gap-6 rounded'>
-          <IoIosPeople size={40} color='#5718FF' className='icon icon_purple' />
+          <IoIosPeople
+            size={40}
+            color='#5718FF'
+            className='icon bg-purple-light'
+          />
           <h5 className='font-normal uppercase'>Active Users</h5>
           <p className='text-2xl leading-4 font-bold text-dark-blue'>
             {commaFormatter(2453)}
@@ -36,7 +101,7 @@ const UsersList = () => {
           <IoDocumentTextOutline
             size={40}
             color='#F55F44'
-            className='icon icon_orange'
+            className='icon bg-orange-light'
           />
           <h5 className='font-normal uppercase'>Users with loans</h5>
           <p className='text-2xl leading-4 font-bold text-dark-blue'>
@@ -44,7 +109,7 @@ const UsersList = () => {
           </p>
         </div>
         <div className='flex flex-col flex-1 items-start justify-between bg-white p-7 gap-6 rounded'>
-          <FaCoins size={40} color='#FF3366' className='icon icon_red' />
+          <FaCoins size={40} color='#FF3366' className='icon bg-red-light' />
           <h5 className='font-normal uppercase'>Users with savings</h5>
           <p className='text-2xl leading-4 font-bold text-dark-blue'>
             {commaFormatter(2453)}
@@ -62,6 +127,7 @@ const UsersList = () => {
               accessor: 'orgName',
               name: 'organization',
               sortable: true,
+              searchType: 'select',
               row: (val) => <>{transformWords(val, 'capital')} </>,
             },
             {
@@ -69,6 +135,7 @@ const UsersList = () => {
               secondary_key: 'profile.lastName',
               name: 'username',
               sortable: true,
+              searchType: 'input',
               row: (val, second) => (
                 <>
                   {val} {second}
@@ -79,26 +146,45 @@ const UsersList = () => {
               accessor: 'email',
               name: 'email',
               sortable: true,
+              searchType: 'input',
               row: (val) => <>{transformWords(val, 'lower')} </>,
             },
             {
               accessor: 'phoneNumber',
               name: 'phone number',
               sortable: true,
+              searchType: 'select',
             },
             {
               accessor: 'createdAt',
               name: 'date joined',
               sortable: true,
+              searchType: 'date',
             },
             {
-              accessor: 'profile.bvn',
+              accessor: 'status',
               name: 'status',
               sortable: true,
+              searchType: 'select',
+              row: (val) => (
+                <span
+                  className={`${
+                    val === 'active'
+                      ? 'text-green bg-green-light text-sm rounded-md px-4'
+                      : val === 'inactive'
+                      ? 'text-gray bg-gray-light text-sm rounded-md px-4'
+                      : val === 'blacklisted'
+                      ? 'text-red bg-red-light text-sm rounded-md px-4'
+                      : 'text-yellow bg-yellow-light text-sm rounded-md px-4'
+                  } capitalize p-2`}>
+                  {val}{' '}
+                </span>
+              ),
             },
           ]}
           rows={10}
-          data={data}
+          data={data.map((el, index) => ({ ...el, status: status[index % 4] }))}
+          ActionComponent={ActionComponent}
         />
       )}
     </main>
