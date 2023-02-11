@@ -39,7 +39,7 @@ const FormSelect = (props: SelectProps) => {
           className='relative w-full space-y-4'
           onClick={() => setShowOpts((s) => !s)}>
           <input
-            className={`block w-full py-4 border px-3 pr-6 cursor-pointer leading-5 rounded`}
+            className={`block w-full py-4 border px-3 pr-6 cursor-pointer leading-5 rounded text-gray`}
             type='text'
             readOnly
             {...props}

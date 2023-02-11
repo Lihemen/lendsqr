@@ -27,3 +27,11 @@ export const commaFormatter = (val: string | number, dp: number = 0) => {
     maximumFractionDigits: dp,
   }).format(Number(value));
 };
+
+export const dateFormatter = (date: string | Date) => {
+  return new Date(date).toLocaleDateString('en', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  });
+};

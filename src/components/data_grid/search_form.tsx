@@ -43,7 +43,12 @@ const SearchForm = ({
                       placeholder='Select'
                     />
                   ) : header.searchType === 'date' ? (
-                    <DateInput />
+                    <DateInput
+                      id={header.accessor}
+                      name={header.accessor}
+                      label={header.name}
+                      placeholder={header.name}
+                    />
                   ) : (
                     <TextInput
                       name={header.accessor}

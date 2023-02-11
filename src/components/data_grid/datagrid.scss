@@ -1,5 +1,5 @@
 .table {
-  height: 50rem;
+  height: 60rem;
   overflow: auto;
   &_head {
     position: sticky;
@@ -30,7 +30,7 @@
   z-index: 99;
   font-weight: normal;
   background-color: white;
-  min-width: 320px;
+  min-width: 360px;
   &.show {
     display: block;
   }

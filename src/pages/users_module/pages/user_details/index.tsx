@@ -1,6 +1,7 @@
 import React from 'react';
 import { HiOutlineArrowNarrowLeft } from 'react-icons/hi';
 import { useNavigate } from 'react-router-dom';
+import { Fade } from '../../../../motions';
 import { UserProvider } from './context';
 import UserProfile from './profile';
 
@@ -9,7 +10,7 @@ import './user.scss';
 const UserDetails = () => {
   const navigate = useNavigate();
   return (
-    <div className='flex flex-col gap-6 text-gray'>
+    <Fade className='flex flex-col gap-6 text-gray'>
       <div className='flex items-center justify-between'>
         <button
           className='flex items-center gap-2 cursor-pointer text-gray'
@@ -31,7 +32,7 @@ const UserDetails = () => {
       <UserProvider>
         <UserProfile />
       </UserProvider>
-    </div>
+    </Fade>
   );
 };
 

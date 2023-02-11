@@ -1,0 +1,39 @@
+.date_input {
+  appearance: none;
+  outline: none;
+  word-spacing: 1.25px;
+  border-radius: 5px;
+  border: 2px solid rgba(84, 95, 125, 0.15);
+  line-height: 20px;
+  font-size: 14px;
+  color: #545f7d;
+  ::placeholder {
+    opacity: 0.6;
+  }
+}
+.calendar_icon {
+  position: absolute;
+  right: 0.875rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.calendar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100%;
+  background: white;
+  z-index: 1000;
+  width: 99%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  max-height: 0;
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
+  &.show {
+    max-height: 24rem;
+    overflow: scroll;
+  }
+}

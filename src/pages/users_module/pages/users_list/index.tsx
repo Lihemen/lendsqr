@@ -14,6 +14,7 @@ import { commaFormatter, transformWords } from '../../../../utils/formatter';
 
 import { Loader, Table } from '../../../../components';
 import { get_all_users } from '../../../../queries';
+import { Fade } from '../../../../motions';
 
 const ActionComponent = ({ data }: { data: User }) => {
   const [opened, setOpened] = useState(false);
@@ -71,7 +72,7 @@ const UsersList = () => {
   const { data, isError, isLoading } = useQuery(get_all_users());
 
   return (
-    <main className='flex flex-col gap-8'>
+    <Fade className='flex flex-col gap-8'>
       <h3 className='text-xl text-dark-blue font-semibold'>Users</h3>
       <div className='flex justify-between items-center gap-8'>
         <div className='flex flex-col flex-1 items-start justify-between bg-white p-7 gap-6 rounded'>
@@ -187,7 +188,7 @@ const UsersList = () => {
           ActionComponent={ActionComponent}
         />
       )}
-    </main>
+    </Fade>
   );
 };
 
