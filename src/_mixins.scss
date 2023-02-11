@@ -26,6 +26,12 @@ $positions: 't', 'b', 'r', 'l';
 }
 
 @each $num in $nums {
+  .w-#{$num} {
+    width: math.div($num, 4) * 1rem;
+  }
+  .h-#{$num} {
+    height: math.div($num, 4) * 1rem;
+  }
   .leading-#{$num} {
     line-height: calc($num * 4) * 1px;
   }

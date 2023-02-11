@@ -35,3 +35,12 @@ export const dateFormatter = (date: string | Date) => {
     year: 'numeric',
   });
 };
+
+export const dateTimeFormatter = (string: Date) => {
+  const date = dateFormatter(string);
+  const time = new Date(string).toLocaleTimeString('en', {
+    timeStyle: 'short',
+  });
+
+  return `${date} ${time}`;
+};

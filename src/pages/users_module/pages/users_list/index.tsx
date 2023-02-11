@@ -10,7 +10,11 @@ import { RxDotsVertical } from 'react-icons/rx';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 
-import { commaFormatter, transformWords } from '../../../../utils/formatter';
+import {
+  commaFormatter,
+  dateTimeFormatter,
+  transformWords,
+} from '../../../../utils/formatter';
 
 import { Loader, Table } from '../../../../components';
 import { get_all_users } from '../../../../queries';
@@ -148,7 +152,7 @@ const UsersList = () => {
               name: 'email',
               sortable: true,
               searchType: 'input',
-              row: (val) => <>{transformWords(val, 'lower')} </>,
+              row: (val) => <span className='lower'>{val}</span>,
             },
             {
               accessor: 'phoneNumber',
@@ -161,6 +165,7 @@ const UsersList = () => {
               name: 'date joined',
               sortable: true,
               searchType: 'date',
+              row: (val) => <>{dateTimeFormatter(val)} </>,
             },
             {
               accessor: 'status',
