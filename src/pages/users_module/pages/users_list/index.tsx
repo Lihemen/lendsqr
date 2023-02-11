@@ -153,7 +153,7 @@ const UsersList = () => {
               accessor: 'phoneNumber',
               name: 'phone number',
               sortable: true,
-              searchType: 'select',
+              searchType: 'input',
             },
             {
               accessor: 'createdAt',

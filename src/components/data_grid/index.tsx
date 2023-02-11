@@ -12,6 +12,7 @@ import {
 import './datagrid.scss';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
+import SearchForm from './search_form';
 
 const DataGrid = ({ data, rows, headers, ...props }: DataGridProps<any[]>) => {
   // navigation
@@ -76,6 +77,10 @@ const DataGrid = ({ data, rows, headers, ...props }: DataGridProps<any[]>) => {
     }
   };
 
+  // filter
+  const [showFilter, setShowFilter] = useState<string>('');
+  const [filterObj, setFilterObj] = useState({});
+
   useDebouncedEffect(
     () => {
       // Handle Pagination on load
@@ -87,14 +92,20 @@ const DataGrid = ({ data, rows, headers, ...props }: DataGridProps<any[]>) => {
     50
   );
 
-  console.log(headers);
+  useDebouncedEffect(
+    () => {
+      console.log(filterObj);
+    },
+    [],
+    100
+  );
 
   return (
     <div className='relative'>
       <div className='bg-white relative table pb-20'>
         <table className='overflow-auto w-full mb-10'>
           <thead className='table_head w-full'>
-            <tr>
+            <tr className='relative'>
               {props.withCheck && (
                 <th className='align-middle '>
                   <input
@@ -109,10 +120,24 @@ const DataGrid = ({ data, rows, headers, ...props }: DataGridProps<any[]>) => {
                 </th>
               )}
               {headers.map((header) => (
-                <th key={header.accessor} className='uppercase text-left'>
-                  <span className='flex items-center gap-4 cursor-default whitespace-nowrap p-6'>
+                <th
+                  key={header.accessor}
+                  className=' text-left relative'
+                  onClick={() =>
+                    setShowFilter((prev) =>
+                      prev === header.accessor ? '' : header.accessor
+                    )
+                  }>
+                  <span className='flex items-center gap-4 cursor-default whitespace-nowrap p-6 relative uppercase'>
                     {header.name} <IoMdFunnel size={18} />
                   </span>
+                  <SearchForm
+                    close={() => setShowFilter('')}
+                    data={data}
+                    headers={headers}
+                    show={header.accessor === showFilter}
+                    setFilterObj={setFilterObj}
+                  />
                 </th>
               ))}
               {props.ActionComponent && <th></th>}

@@ -58,7 +58,7 @@ const General = () => {
           </div>
           <div className='flex flex-col gap-1'>
             <p className='text-sm uppercase'>EMPLOYMENT STATUS</p>
-            <p className='font-semibold'>{user.education.employementStatus}</p>
+            <p className='font-semibold'>{user.education.employmentStatus}</p>
           </div>
           <div className='flex flex-col gap-1'>
             <p className='text-sm uppercase'>SECTOR OF EMPLOYMENT</p>

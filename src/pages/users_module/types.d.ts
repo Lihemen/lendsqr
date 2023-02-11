@@ -23,7 +23,7 @@ type Socials = {
 
 type Education = {
   level: 'Bsc' | 'SSCE' | string; // remove the string to restrict when all levels are specified
-  employementStatus: 'Employed' | 'UnEmployed';
+  employmentStatus: 'Employed' | 'UnEmployed';
   sector: string;
   duration: string;
   officeEmail: string;

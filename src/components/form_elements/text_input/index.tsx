@@ -47,7 +47,7 @@ const FormInput = ({ label, ...props }: FormInputInterface) => {
           placeholder={props.placeholder}
           autoComplete={props.autocomplete}
           autoFocus={props.autoFocus}
-          className='form_input'
+          className='form_input py-4 px-3 pr-8'
           {...field}
         />
         {props.type === 'password' && (

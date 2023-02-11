@@ -13,7 +13,6 @@ import {
 import avatar from '../../../../../assets/avatar.jpeg';
 
 import '../user.scss';
-import { commaFormatter } from '../../../../../utils/formatter';
 
 const UserProfile = () => {
   const { user } = useUserCtx();

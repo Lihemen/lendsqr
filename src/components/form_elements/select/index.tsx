@@ -1,6 +1,8 @@
 import { useField } from 'formik';
 import { useState } from 'react';
 import { MdKeyboardArrowDown } from 'react-icons/md';
+import { transformWords } from '../../../utils/formatter';
+import FormLabel from '../label';
 import './select.scss';
 
 type SelectProps = {
@@ -24,19 +26,20 @@ const FormSelect = (props: SelectProps) => {
 
   return (
     <div className=''>
-      <label
-        htmlFor={props.name || props.id}
-        className='block text-base capitalize'
-        onClick={() => setShowOpts((s) => !s)}>
-        {props.label}{' '}
-        {props.required && <span className='text-red-400'>*</span>}
-      </label>
+      {props.label && (
+        <FormLabel
+          label={props.label}
+          htmlFor={props.label || props.name}
+          requiredHint={props.required}
+        />
+      )}
+
       <div className='relative'>
         <div
           className='relative w-full space-y-4'
           onClick={() => setShowOpts((s) => !s)}>
           <input
-            className={`block w-full py-4 border px-3 pr-6 cursor-pointer`}
+            className={`block w-full py-4 border px-3 pr-6 cursor-pointer leading-5 rounded`}
             type='text'
             readOnly
             {...props}
@@ -44,7 +47,7 @@ const FormSelect = (props: SelectProps) => {
             {...field}
           />
           <MdKeyboardArrowDown
-            className={`select_arrow ${showOpts && 'show'}`}
+            className={`select_arrow transition ${showOpts && 'rotate-180'}`}
           />
         </div>
         <ul className={`select_list ${showOpts && 'show'}`}>
@@ -56,7 +59,7 @@ const FormSelect = (props: SelectProps) => {
                 setShowOpts(false);
               }}
               className='flex items-center gap-2 whitespace-nowrap select_list_item'>
-              {option.label}
+              {transformWords(option.label, 'capital')}
             </li>
           ))}{' '}
         </ul>

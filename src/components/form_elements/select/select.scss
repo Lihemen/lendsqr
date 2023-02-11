@@ -1,8 +1,13 @@
-.selec_arrow {
+.select_arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   right: 0.875rem;
+
+  &.rotate-180 {
+    transform: rotate(180deg);
+    top: 40%;
+  }
 }
 
 .select_list {
@@ -14,6 +19,7 @@
   transition: max-height 0.3s ease-in-out;
   background-color: #fff;
   overflow: hidden;
+  z-index: 2;
   &_item {
     padding: 10px;
     &:hover {
@@ -21,11 +27,7 @@
     }
   }
   &.show {
-    max-height: 24rem;
+    max-height: 10rem;
     overflow: scroll;
   }
-}
-
-.rotate-180 {
-  transform: rotate(180deg);
 }

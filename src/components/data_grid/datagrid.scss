@@ -20,3 +20,18 @@
     }
   }
 }
+
+.modal {
+  position: absolute;
+  left: 10px;
+  top: 100%;
+  display: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 99;
+  font-weight: normal;
+  background-color: white;
+  min-width: 320px;
+  &.show {
+    display: block;
+  }
+}

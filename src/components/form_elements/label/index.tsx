@@ -11,7 +11,7 @@ const FormLabel = ({
   requiredHint: boolean | undefined;
 }) => {
   return (
-    <label htmlFor={htmlFor} className='form__label'>
+    <label htmlFor={htmlFor} className='form__label capitalize'>
       {label} {requiredHint && <span className='text-red-400'>*</span>}
     </label>
   );
