@@ -2,6 +2,7 @@ import { render } from '@testing-library/react';
 import { describe, it, vi, Mock, beforeEach, afterEach, expect } from 'vitest';
 import UsersList from '.';
 import { useUsers } from '../../../../hooks';
+import { renderWithClient } from '../../../../__tests__/utils';
 
 // Solves Typescript error
 const mockeduseUsers = useUsers as Mock<any>;
@@ -9,11 +10,13 @@ const mockeduseUsers = useUsers as Mock<any>;
 // Mock the module
 vi.mock('../../../../hooks/useUsers');
 
-import { renderWithClient } from '../../../../__tests__/utils';
-
 describe('UsersList', () => {
   beforeEach(() => {
-    mockeduseUsers.mockImplementation(() => ({ isLoading: true }));
+    mockeduseUsers.mockImplementation(() => ({
+      isLoading: true,
+      isError: false,
+      data: undefined,
+    }));
   });
   afterEach(() => {
     vi.clearAllMocks();
