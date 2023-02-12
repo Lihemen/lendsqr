@@ -1,9 +1,8 @@
 import React, { useContext, createContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { useQuery } from 'react-query';
-import { get_all_users } from '../../../../../queries';
 import { Loader } from '../../../../../components';
 import { DataFetchingError, OperationError } from '../../../../../errors';
+import { useUsers } from '../../../../../hooks';
 
 type UserCtxProps = {
   user: User;
@@ -18,7 +17,7 @@ const UserCtx = createContext<UserCtxProps | null>(null);
 
 const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const { id } = useParams();
-  const { data, isError, isLoading } = useQuery(get_all_users());
+  const { data, isError, isLoading } = useUsers();
 
   if (isLoading) return <Loader />;
 

@@ -7,7 +7,6 @@ import { IoIosPeople } from 'react-icons/io';
 import { IoDocumentTextOutline } from 'react-icons/io5';
 import { FaCoins, FaUserCheck, FaUserTimes, FaRegEye } from 'react-icons/fa';
 import { RxDotsVertical } from 'react-icons/rx';
-import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 
 import {
@@ -17,8 +16,8 @@ import {
 } from '../../../../utils/formatter';
 
 import { Loader, Table } from '../../../../components';
-import { get_all_users } from '../../../../queries';
 import { Fade } from '../../../../motions';
+import { useUsers } from '../../../../hooks';
 
 const ActionComponent = ({ data }: { data: User }) => {
   const [opened, setOpened] = useState(false);
@@ -73,7 +72,7 @@ const ActionComponent = ({ data }: { data: User }) => {
 
 const UsersList = () => {
   const status = ['active', 'pending', 'inactive', 'blacklisted'];
-  const { data, isError, isLoading } = useQuery(get_all_users());
+  const { data, isError, isLoading } = useUsers();
 
   return (
     <Fade className='flex flex-col gap-8 pb-10'>
