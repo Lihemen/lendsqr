@@ -11,7 +11,7 @@ const UserDetails = () => {
   const navigate = useNavigate();
   return (
     <Fade className='flex flex-col gap-6 text-gray'>
-      <div className='flex items-center justify-between'>
+      <div className='flex items-center justify-between xs-flex-col gap-4'>
         <button
           className='flex items-center gap-2 cursor-pointer text-gray'
           onClick={() => navigate('/users')}>

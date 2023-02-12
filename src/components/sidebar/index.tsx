@@ -57,10 +57,16 @@ const SidebarLink = ({ close, icon, to }: SidebarNavLinkProps) => {
   );
 };
 
-const Sidebar = () => {
+const Sidebar = ({
+  className,
+  close,
+}: {
+  className?: string;
+  close: () => void;
+}) => {
   const { logout } = useAuthCtx();
   return (
-    <aside className='sidebar'>
+    <aside className={`sidebar ${className}`}>
       <nav className='flex flex-col gap-7'>
         <li className='flex items-center gap-4 text-gray mb-2 cursor-pointer text-base'>
           <FaBriefcase size={20} />
@@ -68,64 +74,117 @@ const Sidebar = () => {
           <MdKeyboardArrowDown size={20} />
         </li>
 
-        <SidebarLink icon={<IoHomeOutline size={20} />} to='' />
+        <SidebarLink close={close} icon={<IoHomeOutline size={20} />} to='' />
         <div>
           <h4 className='sidebar_links_title'>Customers</h4>
           <ul className='flex flex-col py-4 gap-2'>
-            <SidebarLink icon={<HiUsers size={20} />} to='users' />
             <SidebarLink
+              close={close}
+              icon={<HiUsers size={20} />}
+              to='users'
+            />
+            <SidebarLink
+              close={close}
               icon={<HiOutlineUserGroup size={20} />}
               to='guarantors'
             />
             <SidebarLink
+              close={close}
               icon={<FaRegHandshake size={20} />}
               to='decision-models'
             />
-            <SidebarLink icon={<FaPiggyBank size={20} />} to='savings' />
             <SidebarLink
+              close={close}
+              icon={<FaPiggyBank size={20} />}
+              to='savings'
+            />
+            <SidebarLink
+              close={close}
               icon={<GiReceiveMoney size={20} />}
               to='loan-requests'
             />
-            <SidebarLink icon={<FaUserCheck size={20} />} to='whitelist' />
-            <SidebarLink icon={<FaUserTimes size={20} />} to='karma' />
+            <SidebarLink
+              close={close}
+              icon={<FaUserCheck size={20} />}
+              to='whitelist'
+            />
+            <SidebarLink
+              close={close}
+              icon={<FaUserTimes size={20} />}
+              to='karma'
+            />
           </ul>
         </div>
         <div>
           <h4 className='sidebar_links_title'>Businesses</h4>
           <ul className='flex flex-col py-4 gap-2'>
-            <SidebarLink icon={<FaBriefcase size={20} />} to='organization' />
             <SidebarLink
+              close={close}
+              icon={<FaBriefcase size={20} />}
+              to='organization'
+            />
+            <SidebarLink
+              close={close}
               icon={<GiReceiveMoney size={20} />}
               to='loan-products'
             />
             <SidebarLink
+              close={close}
               icon={<AiOutlineBank size={20} />}
               to='savings-products'
             />
-            <SidebarLink icon={<FaCoins size={20} />} to='fees-and-charges' />
             <SidebarLink
+              close={close}
+              icon={<FaCoins size={20} />}
+              to='fees-and-charges'
+            />
+            <SidebarLink
+              close={close}
               icon={<MdOutlinePhonelinkRing size={20} />}
               to='transactions'
             />
-            <SidebarLink icon={<GiGalaxy size={20} />} to='services' />
-            <SidebarLink icon={<FaUserCog size={20} />} to='service account' />
-            <SidebarLink icon={<FaScroll size={20} />} to='settlements' />
-            <SidebarLink icon={<AiOutlineBarChart size={20} />} to='reports' />
+            <SidebarLink
+              close={close}
+              icon={<GiGalaxy size={20} />}
+              to='services'
+            />
+            <SidebarLink
+              close={close}
+              icon={<FaUserCog size={20} />}
+              to='service account'
+            />
+            <SidebarLink
+              close={close}
+              icon={<FaScroll size={20} />}
+              to='settlements'
+            />
+            <SidebarLink
+              close={close}
+              icon={<AiOutlineBarChart size={20} />}
+              to='reports'
+            />
           </ul>
         </div>
         <div>
           <h4 className='sidebar_links_title'>Settings</h4>
           <ul className='flex flex-col py-4 gap-2'>
             <SidebarLink
+              close={close}
               icon={<GiSettingsKnobs size={20} />}
               to='preferences'
             />
             <SidebarLink
+              close={close}
               icon={<HiOutlineCheckBadge size={20} />}
               to='fees-and-pricing'
             />
-            <SidebarLink icon={<FaClipboardList size={20} />} to='audit logs' />
             <SidebarLink
+              close={close}
+              icon={<FaClipboardList size={20} />}
+              to='audit logs'
+            />
+            <SidebarLink
+              close={close}
               icon={<HiOutlineCheckBadge size={20} />}
               to='system-messages'
             />

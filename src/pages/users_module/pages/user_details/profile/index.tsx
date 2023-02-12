@@ -19,7 +19,7 @@ const UserProfile = () => {
   return (
     <>
       <div className=' flex flex-col pb-10'>
-        <div className='flex items-center bg-white p-8 w-full  '>
+        <div className='flex items-center bg-white p-8 w-full overflow-x-scroll '>
           <img
             src={user.profile.avatar}
             alt='image'
@@ -37,7 +37,7 @@ const UserProfile = () => {
             <p className='uppercase text-sm'>{user.accountNumber} </p>
           </div>
           <div className='flex flex-col gap-2 border-1 border-r border-l py-3 px-8 '>
-            <p className='text-sm'>User's Tier</p>
+            <p className='text-sm whitespace-nowrap'>User's Tier</p>
             <p>
               <FaStar className='text-yellow' />{' '}
               <FaRegStar className='text-yellow' />{' '}
@@ -60,7 +60,7 @@ const UserProfile = () => {
               border: 'none !important',
             },
           }}>
-          <Tabs.List className='flex gap-10 px-8 bg-white'>
+          <Tabs.List className='grid cols-8 gap-10 px-8 bg-white overflow-x-scroll w-full whitespace-nowrap'>
             <Tabs.Tab value='general' className='text-gray'>
               General
             </Tabs.Tab>

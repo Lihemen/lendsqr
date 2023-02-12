@@ -28,7 +28,7 @@ const Pagination = ({
 
   return (
     <div className='pagination gap-4 py-4'>
-      <div className='flex items-center justify-between'>
+      <div className='flex items-center justify-between gap-4 sm-flex-col'>
         <p className='flex items-center gap-8'>
           Showing{' '}
           <ActionSelect

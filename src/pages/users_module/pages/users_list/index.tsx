@@ -77,7 +77,7 @@ const UsersList = () => {
   return (
     <Fade className='flex flex-col gap-8 pb-10'>
       <h3 className='text-xl text-dark-blue font-semibold'>Users</h3>
-      <div className='flex justify-between items-center gap-8'>
+      <div className='grid cols-1 cols-2-md cols-3-lg cols-4-xl justify-between items-center gap-8'>
         <div className='flex flex-col flex-1 items-start justify-between bg-white p-7 px-8 gap-6 rounded tile'>
           <MdPeopleAlt
             fontVariant='Bulk'

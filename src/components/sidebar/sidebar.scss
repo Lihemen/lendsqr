@@ -10,6 +10,15 @@
   padding: 8rem 0 0 1.5rem;
   z-index: 10000;
   font-weight: normal;
+  @media (max-width: 1023px) {
+    & {
+      display: none;
+    }
+    &.show {
+      display: block;
+      width: 288px;
+    }
+  }
   .sidebar_links_title {
     font-style: normal;
     font-weight: 500;

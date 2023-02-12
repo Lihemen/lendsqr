@@ -17,20 +17,42 @@
   width: calc(100% - 23%);
 }
 .search {
-  min-width: 500px;
-  max-width: 600px;
-  outline: none;
-  border: 1px solid rgba($color: $lendsqr-dark-blue, $alpha: 0.2);
-  font-size: 14px;
-  font-family: 'Work Sans', sans-serif;
-  ::placeholder {
-    opacity: 0.7;
+  input {
+    min-width: 500px;
+    max-width: 600px;
+    outline: none;
+    border: 1px solid rgba($color: $lendsqr-dark-blue, $alpha: 0.2);
+    font-size: 14px;
+    font-family: 'Work Sans', sans-serif;
+    ::placeholder {
+      opacity: 0.7;
+    }
+  }
+  &_button {
+    position: absolute;
+    right: 1px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 0 5px 5px 0;
+  }
+  @media (max-width: 1023px) {
+    & {
+      display: none;
+    }
   }
 }
-.search_button {
-  position: absolute;
-  right: 1px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-radius: 0 5px 5px 0;
+.profile {
+  @media (max-width: 1023px) {
+    justify-self: flex-end;
+    margin-left: auto;
+  }
+  .menu_btn {
+    display: none;
+    background: none;
+    @media (max-width: 1023px) {
+      & {
+        display: block;
+      }
+    }
+  }
 }

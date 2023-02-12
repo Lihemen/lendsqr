@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import { Navbar, Sidebar } from './components';
+import { Navigation } from './components';
 import { useAuthCtx } from './context/Auth';
 
 function App() {
@@ -15,12 +15,11 @@ function App() {
   }, [isAuthenticated]);
   return (
     <>
-      <Navbar key='navbar' />
-      <Sidebar key='sidebar' />
+      <Navigation key='navbar' />
       <AnimatePresence mode='wait'>
-        <main className='main text-gray' key='main'>
+        <div className='main text-gray' key='main'>
           <Outlet />
-        </main>
+        </div>
       </AnimatePresence>
     </>
   );
