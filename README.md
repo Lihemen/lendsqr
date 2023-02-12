@@ -53,7 +53,7 @@ Built with
 
 - React
 - SCSS
-- Tailwind
+- Typescript
 - Framer Motion
 - Mantine.dev
 - React-query
