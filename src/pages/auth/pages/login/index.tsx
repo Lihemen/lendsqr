@@ -14,12 +14,12 @@ import { Link } from 'react-router-dom';
 const Login = () => {
   const { login } = useAuthCtx();
   return (
-    <section className='login'>
-      <div className='flex flex-1 justify-center items-center text-center login_img_container'>
+    <section className='login cols-1 cols-2-md'>
+      <div className='flex flex-1 justify-center items-center text-center login_img_container p-6'>
         <img src={logo} alt='lendsqr' className='logo' />
         <img src={loginImage} alt='pablo sign in' className='login_img' />
       </div>
-      <div className='flex-1 flex flex-col login_form_container box'>
+      <div className='flex-1 flex flex-col login_form_container box p-6'>
         <h3 className='text-4xl leading-10 pb-4 text-dark-blue'>Welcome!</h3>
         <p className='text-gray'>Enter Details to Login</p>
         <Formik
