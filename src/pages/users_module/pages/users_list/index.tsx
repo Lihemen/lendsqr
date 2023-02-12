@@ -76,10 +76,10 @@ const UsersList = () => {
   const { data, isError, isLoading } = useQuery(get_all_users());
 
   return (
-    <Fade className='flex flex-col gap-8'>
+    <Fade className='flex flex-col gap-8 pb-10'>
       <h3 className='text-xl text-dark-blue font-semibold'>Users</h3>
       <div className='flex justify-between items-center gap-8'>
-        <div className='flex flex-col flex-1 items-start justify-between bg-white p-7 gap-6 rounded'>
+        <div className='flex flex-col flex-1 items-start justify-between bg-white p-7 px-8 gap-6 rounded tile'>
           <MdPeopleAlt
             fontVariant='Bulk'
             size={40}
@@ -91,7 +91,7 @@ const UsersList = () => {
             {commaFormatter(2453)}
           </p>
         </div>
-        <div className='flex flex-col flex-1 items-start justify-between bg-white p-7 gap-6 rounded'>
+        <div className='flex flex-col flex-1 items-start justify-between bg-white p-7 px-8 gap-6 rounded tile'>
           <IoIosPeople
             size={40}
             color='#5718FF'
@@ -102,7 +102,7 @@ const UsersList = () => {
             {commaFormatter(2453)}
           </p>
         </div>
-        <div className='flex flex-col flex-1 items-start justify-between bg-white p-7 gap-6 rounded'>
+        <div className='flex flex-col flex-1 items-start justify-between bg-white p-7 px-8 gap-6 rounded tile'>
           <IoDocumentTextOutline
             size={40}
             color='#F55F44'
@@ -113,7 +113,7 @@ const UsersList = () => {
             {commaFormatter(2453)}
           </p>
         </div>
-        <div className='flex flex-col flex-1 items-start justify-between bg-white p-7 gap-6 rounded'>
+        <div className='flex flex-col flex-1 items-start justify-between bg-white p-7 px-8 gap-6 rounded tile'>
           <FaCoins size={40} color='#FF3366' className='icon bg-red-light' />
           <h5 className='font-normal uppercase'>Users with savings</h5>
           <p className='text-2xl leading-4 font-bold text-dark-blue'>

@@ -171,3 +171,9 @@ $positions: 't', 'b', 'r', 'l';
     text-align: #{$align};
   }
 }
+
+@mixin xl_visible {
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}

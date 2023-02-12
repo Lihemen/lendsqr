@@ -92,18 +92,10 @@ const DataGrid = ({ data, rows, headers, ...props }: DataGridProps<any[]>) => {
     50
   );
 
-  useDebouncedEffect(
-    () => {
-      console.log(filterObj);
-    },
-    [],
-    100
-  );
-
   return (
     <div className='relative'>
       <div className='bg-white relative table pb-20'>
-        <table className='overflow-auto w-full mb-10'>
+        <table className='overflow-auto w-full mb-10 rounded'>
           <thead className='table_head w-full'>
             <tr className='relative'>
               {props.withCheck && (

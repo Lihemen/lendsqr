@@ -7,10 +7,14 @@ import { Login } from './pages/auth';
 // Application Routes
 import { UserDetails, UsersList } from './pages/users_module';
 
+// Error Element
+import ErrorBoundary from './pages/error';
+
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    errorElement: <ErrorBoundary />,
     children: [
       {
         path: 'users',

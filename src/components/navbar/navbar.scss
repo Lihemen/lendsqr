@@ -5,7 +5,7 @@
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 10000;
+  z-index: 10001;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
   padding: 1.5rem 2.5rem 1.5rem 1.5rem;
   display: flex;
@@ -17,8 +17,8 @@
   width: calc(100% - 23%);
 }
 .search {
-  min-width: 400px;
-  max-width: 500px;
+  min-width: 500px;
+  max-width: 600px;
   outline: none;
   border: 1px solid rgba($color: $lendsqr-dark-blue, $alpha: 0.2);
   font-size: 14px;
