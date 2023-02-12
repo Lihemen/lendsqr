@@ -9,10 +9,7 @@ const mockeduseUsers = useUsers as Mock<any>;
 // Mock the module
 vi.mock('../../../../hooks/useUsers');
 
-import {
-  renderWithClient,
-  createFetchResponse,
-} from '../../../../__tests__/utils';
+import { renderWithClient } from '../../../../__tests__/utils';
 
 describe('UsersList', () => {
   beforeEach(() => {
